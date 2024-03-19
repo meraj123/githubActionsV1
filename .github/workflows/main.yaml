@@ -16,6 +16,6 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'us-east-1'
-        AWS_S3_BUCKET: "s3://github-actions-demo-v1"
+        AWS_S3_BUCKET: "github-actions-demo-v1"
         S3_KEY: ${{ secrets.S3_KEY }}
         FILE: "C:/Users/ERJ3KOR/Downloads/dummy.txt"
