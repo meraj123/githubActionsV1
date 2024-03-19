@@ -1,21 +1,14 @@
 name: Add a file to a bucket
-on: push
-
+'on': push
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-
-    - name: Upload file to bucket
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'
-        AWS_S3_BUCKET: "s3://github-actions-demo-v1"
-        S3_KEY: ${{ secrets.S3_KEY }}
-        FILE: "C:/Users/ERJ3KOR/Downloads/dummy.txt"
+      steps:
+      - uses: actions/checkout@master
+      - name: Create bucket and validate if it's already existed
+        uses: alialrubaye/aws-s3-create-bucket@v1.0.0
+        with:
+          bucket-name: my-unique-name-for-my-bucket
+          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          aws-region: us-east-1
