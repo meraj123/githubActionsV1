@@ -18,4 +18,4 @@ jobs:
 
      - name: Upload file to S3
        run: |
-          aws s3 cp C:/Users/ERJ3KOR/Downloads/dummy.txt s3://github-actions-demo-v1/
+          aws s3 cp dummy.txt s3://github-actions-demo-v1/
